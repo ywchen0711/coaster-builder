@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>雲霄飛車設計師 Coaster Builder</title>
+<meta name="description" content="Build a roller coaster piece by piece in 3D, then test ride it: real energy physics, G-forces, loops, airtime and four super users who rate your ride.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%233a7aff'/%3E%3Cpath d='M1 13C4 13 4 3 7 3s2 8 4 8 2-5 4-5' stroke='%23fff' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<header id="top">
+  <h1><span id="tTitle"></span> <small id="tSub"></small></h1>
+  <select id="examples"></select>
+  <button id="bSave"></button><button id="bLoad"></button>
+  <span class="grow"></span>
+  <button id="bLang"></button><button id="bHelp">?</button>
+</header>
+
+<aside id="palette">
+  <h3 id="hPieces"></h3>
+  <div id="pieceBtns" class="pieces"></div>
+  <label id="chainLbl" class="toggle"><input type="checkbox" id="chain"> <span>⛓ <b id="tChain"></b></span></label>
+  <h3 id="hTools"></h3>
+  <div class="tools">
+    <button id="bUndo"></button><button id="bAuto"></button><button id="bClear"></button>
+  </div>
+  <div id="colors" class="colors"></div>
+  <p id="status"></p>
+</aside>
+
+<div id="rideBar">
+  <button id="bRide" class="big"></button>
+  <div id="views"><button data-v="orbit"></button><button data-v="pov"></button><button data-v="chase"></button></div>
+</div>
+
+<div id="hud" hidden>
+  <div><small id="hSpeed"></small><b id="vSpeed">0</b></div>
+  <div><small id="hHeight"></small><b id="vHeight">0</b></div>
+  <div><small id="hG"></small><b id="vG">1.0</b></div>
+  <div><small id="hTime"></small><b id="vTime">0</b></div>
+</div>
+<div id="shouts"></div>
+
+<div id="camctl"><button id="camL">⟲</button><button id="camR">⟳</button><button id="zoomIn">＋</button><button id="zoomOut">－</button></div>
+
+<section id="results" hidden>
+  <button class="closeX" id="resClose">✕</button>
+  <h2 id="resTitle"></h2>
+  <div id="resStall"></div>
+  <div id="ratings"></div>
+  <div id="statsGrid"></div>
+  <h3 id="hSuper"></h3>
+  <div id="reviews"></div>
+  <h3 id="hChal"></h3>
+  <div id="badges"></div>
+  <button id="bAgain" class="big"></button>
+</section>
+
+<div id="toast"></div>
+<div id="help" class="modal" hidden><div class="panel"><button class="closeX" id="helpClose">✕</button><h2 id="helpTitle"></h2><div id="helpBody"></div></div></div>
+
+<script type="module" src="js/main.js?v=1"></script>
+<script src="/hub.js" data-pos="bottom-left" defer></script>
+</body>
+</html>
